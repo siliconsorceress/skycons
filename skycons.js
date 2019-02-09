@@ -1,4 +1,3 @@
-(function(global) {
   "use strict";
 
   /* Set up a RequestAnimationFrame shim so we can animate efficiently FOR
@@ -6,16 +5,16 @@
   var requestInterval, cancelInterval;
 
   (function() {
-    var raf = global.requestAnimationFrame       ||
-              global.webkitRequestAnimationFrame ||
-              global.mozRequestAnimationFrame    ||
-              global.oRequestAnimationFrame      ||
-              global.msRequestAnimationFrame     ,
-        caf = global.cancelAnimationFrame        ||
-              global.webkitCancelAnimationFrame  ||
-              global.mozCancelAnimationFrame     ||
-              global.oCancelAnimationFrame       ||
-              global.msCancelAnimationFrame      ;
+    var raf = requestAnimationFrame       ||
+              webkitRequestAnimationFrame ||
+              mozRequestAnimationFrame    ||
+              oRequestAnimationFrame      ||
+              msRequestAnimationFrame     ,
+        caf = cancelAnimationFrame        ||
+              webkitCancelAnimationFrame  ||
+              mozCancelAnimationFrame     ||
+              oCancelAnimationFrame       ||
+              msCancelAnimationFrame      ;
 
     if(raf && caf) {
       requestInterval = function(fn) {
@@ -722,5 +721,4 @@
     }
   };
 
-  global.Skycons = Skycons;
-}(this));
+export default Skycons;
